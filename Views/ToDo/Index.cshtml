@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ToDoModel>
+@{
+    ViewData["Title"] = "ToDo_List";    
+}
+
+<div class="container m-5 p-2 rounded mx-auto bg-light shadow">
+    <!-- App title section -->
+    <div class="row m-1 p-4">
+        <div class="col-6">
+            <div class="p-1 h1 text-primary text-left mx-auto">
+                <p>ToDo List</p>
+            </div>
+        </div>
+        <div class="col-6 text-end">
+                <a asp-action="Add" class="btn btn-primary">Add to ToDo list</a>
+            </div>
+    </div>
+  
+    <div class="p-2 mx-4 border-black-25 border-bottom"></div>
+    <div class="row mx-1 px-5 pb-3 w-80"></div>
+    <!-- Todo list section -->
+    <div class="row mx-1 px-5 pb-3 w-80">
+        <div class="col mx-auto">                          
+                    @foreach (var todo in Model)
+                    {
+                    string divClass = todo.IsCompleted ? "row text-white  px-3 align-items-center todo-item rounded bg-primary" : "row text-secondary px-3 align-items-center todo-item rounded";
+
+                    <div class="@divClass">
+                        <div class="col px-1 m-1 d-flex align-items-center">
+                        <input type="text" class="form-control form-control-lg border-0 edit-todo-input bg-transparent rounded px-3" readonly value="@todo.TaskName" />                            
+                        <a asp-action="Edit" asp-route-id="@todo.Id" type="button" class="btn btn-secondary m-1">Edit</a>
+                        <a asp-action="Complete" asp-route-id="@todo.Id" type="button" class="btn btn-secondary m-1">Complete</a>
+                        <a asp-action="Delete" asp-route-id="@todo.Id" type="button" class="btn btn-secondary m-1">Delete</a>
+                        </div>
+                    </div>
+                    }
+        </div>
+    </div>
+</div>
