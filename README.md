@@ -3,7 +3,7 @@ This is a simple MVC ToDo app.
 <br>
 <h3>Installation</h3>
 <ol>
-  <li> Clone the repository: https://github.com/your-username/to-do.git</li>
+  <li> Clone the repository: https://github.com/Krasns/ToDo.git</li>
   <li> Open the solution file (.sln) in Visual Studio 2022(VS 2022).</li>
   <li>To get the database set up:
     <ol>
